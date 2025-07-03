@@ -14,14 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        include:
-          - image: ghcr.io/${{ github.repository }}
-            context: .
-            dockerfile: ./Dockerfile
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password_secret: GITHUB_TOKEN
     permissions:
       contents: read
       packages: write
@@ -40,7 +32,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v5
         with:
-          images: ${{ matrix.image }}
+          images: ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=ref,event=branch
@@ -54,17 +46,17 @@ jobs:
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: ${{ matrix.username || secrets[matrix.username_secret] }}
-          password: ${{ secrets[matrix.password_secret] }}
-          registry: ${{ matrix.registry }}
+          username: ${{ github.actor }}
+          password: ${{ secrets[GITHUB_TOKEN] }}
+          registry: ghcr.io
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: '${{ matrix.context }}'
-          file: ${{ matrix.dockerfile }}
+          context: .
+          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.metadata.outputs.tags }}
