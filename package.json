@@ -7,6 +7,7 @@
     "preview": "node .output/server/index.mjs"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.6",
     "nitropack": "latest"
   },
   "packageManager": "pnpm@10.12.4+sha1.88a0ccfe72d6345dede50dc9d6158400be2420eb"
