@@ -11,6 +11,8 @@ tmdb-proxy is a lightweight proxy server for the tmdb api and youtube images.
 
 ## Quick Deploy
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkeksiqc%2Ftmdb-proxy&env=TMDB_API_KEY&envDescription=Your%20TMDB%20API%20Key&envLink=https%3A%2F%2Fdevelopers.themoviedb.org%2F3%2Fgetting-started%2Fintroduction&project-name=tmdb-proxy&repository-name=tmdb-proxy)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fkeksiqc%2Ftmdb-proxy#TMDB_API_KEY=)
+
 
 ## Setup
 
