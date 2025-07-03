@@ -66,6 +66,6 @@ jobs:
           context: '${{ matrix.context }}'
           file: ${{ matrix.dockerfile }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          push: ${{ github.ref_type == 'tag' }}
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
