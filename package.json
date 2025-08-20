@@ -4,7 +4,10 @@
     "build": "nitro build",
     "dev": "nitro dev",
     "prepare": "nitro prepare",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "check:unsafe": "biome check --write --unsafe ."
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
