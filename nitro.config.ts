@@ -1,5 +1,5 @@
 import process from "node:process";
-import { defineNitroConfig } from "nitropack/config";
+import { defineNitroConfig } from "nitro/config";
 
 export default defineNitroConfig({
   compatibilityDate: "2025-07-03",
