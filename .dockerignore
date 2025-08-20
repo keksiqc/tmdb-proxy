@@ -7,5 +7,5 @@ npm-debug.log
 .git
 dist
 README.md
-biome.json
+biome.jsonc
 .env*
