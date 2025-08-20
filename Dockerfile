@@ -1,26 +1,32 @@
-FROM node:22-alpine AS base
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+ARG APP_UID=1000 \
+    APP_GID=1000
+
+FROM oven/bun:1.2-alpine AS base
+USER root
+RUN set -ex; \
+    apk --no-cache --update upgrade; \
+    addgroup --gid ${APP_GID} -S docker; \
+    adduser --uid ${APP_UID} -D -S -s /sbin/nologin -G docker docker;
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN pnpm run build
+RUN bun run build
 
 FROM base AS runner
 WORKDIR /app
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nitro
-COPY --from=builder /app .
-USER nitro
+COPY --from=builder /app/.output .
+
 EXPOSE 3000
 ENV PORT 3000
-CMD ["npm", "run", "start"]
+
+USER 1000:1000
+ENTRYPOINT ["bun"]
+CMD ["/app/server/index.mjs"]
