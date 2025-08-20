@@ -3,9 +3,9 @@ name: Docker Build and Publish
 on:
   push:
     branches:
-      - 'main'
+      - "main"
     tags:
-      - 'v*'
+      - "v*"
   workflow_dispatch:
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=raw,value={{sha}},enable=${{ github.ref_type != 'tag' }}
-        
+
       # https://github.com/docker/login-action
       - name: Login to Docker Hub
         if: github.event_name != 'pull_request'
