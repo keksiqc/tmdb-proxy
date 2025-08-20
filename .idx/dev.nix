@@ -3,6 +3,9 @@
   packages = [
     pkgs.bun
   ];
+  services = {
+    docker.enable = true;
+  };
   idx.extensions = [
     "biomejs.biome"
     "EditorConfig.EditorConfig"
