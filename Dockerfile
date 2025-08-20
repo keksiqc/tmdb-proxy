@@ -1,12 +1,10 @@
+FROM oven/bun:1.2-alpine AS base
 ARG APP_UID=1000 \
     APP_GID=1000
 
-FROM oven/bun:1.2-alpine AS base
-USER root
 RUN set -ex; \
-    apk --no-cache --update upgrade; \
-    addgroup --gid ${APP_GID} -S docker; \
-    adduser --uid ${APP_UID} -D -S -s /sbin/nologin -G docker docker;
+    mkdir -p /app; \
+    chown -R ${APP_UID}:${APP_GID} /app;
 
 FROM base AS deps
 RUN apk add --no-cache libc6-compat
@@ -25,8 +23,8 @@ WORKDIR /app
 COPY --from=builder /app/.output .
 
 EXPOSE 3000
-ENV PORT 3000
+ENV PORT=3000
+ENV NODE_ENV=production
 
-USER 1000:1000
-ENTRYPOINT ["bun"]
-CMD ["/app/server/index.mjs"]
+USER ${APP_UID}:${APP_GID}
+ENTRYPOINT ["bun", "/app/server/index.mjs"]
