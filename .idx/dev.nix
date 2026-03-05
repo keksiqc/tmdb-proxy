@@ -1,7 +1,8 @@
-{pkgs}: {
+{ pkgs }: {
   channel = "unstable";
   packages = [
     pkgs.bun
+    pkgs.nodejs_latest
   ];
   services = {
     docker.enable = true;
