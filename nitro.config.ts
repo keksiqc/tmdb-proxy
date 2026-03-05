@@ -1,4 +1,3 @@
-import process from "node:process";
 import { defineNitroConfig } from "nitro/config";
 
 export default defineNitroConfig({
@@ -8,10 +7,5 @@ export default defineNitroConfig({
   preset: "bun",
   routeRules: {
     "/**": { cors: true, swr: 3600 },
-  },
-  runtimeConfig: {
-    tmdb: {
-      apiKey: process.env.TMDB_API_KEY || "",
-    },
   },
 });
