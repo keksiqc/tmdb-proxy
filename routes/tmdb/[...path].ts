@@ -1,5 +1,4 @@
 import { defineEventHandler, getRequestURL, getQuery } from "nitro/h3";
-import { useRuntimeConfig } from "nitro/runtime-config";
 import { $fetch } from "ofetch";
 
 const TMDB_API_URL = "https://api.themoviedb.org/3";
