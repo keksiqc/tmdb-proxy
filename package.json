@@ -7,7 +7,7 @@
     "build": "nitro build",
     "dev": "nitro dev",
     "prepare": "nitro prepare && simple-git-hooks",
-    "preview": "node .output/server/index.mjs",
+    "preview": "bun run .output/server/index.mjs",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",

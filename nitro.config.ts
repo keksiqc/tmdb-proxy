@@ -2,7 +2,8 @@ import process from "node:process";
 import { defineNitroConfig } from "nitro/config";
 
 export default defineNitroConfig({
-  compatibilityDate: "2025-07-03",
+  compatibilityDate: "2026-03-05",
+  serverDir: "./",
   builder: "rolldown",
   preset: "bun",
   routeRules: {
