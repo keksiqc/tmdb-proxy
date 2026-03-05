@@ -3,6 +3,8 @@ import { defineNitroConfig } from "nitro/config";
 
 export default defineNitroConfig({
   compatibilityDate: "2025-07-03",
+  builder: "rolldown",
+  preset: "bun",
   routeRules: {
     "/**": { cors: true, swr: 3600 },
   },
