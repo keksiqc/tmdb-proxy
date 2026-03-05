@@ -1,5 +1,8 @@
 {
+  "name": "tmdb-proxy",
+  "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
