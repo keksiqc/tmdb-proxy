@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "nitro": {
+      "source": "nitrojs/nitro",
+      "sourceType": "github",
+      "computedHash": "1a8683c6a51cc2d187126f75e55d57c09431d622c6ccd7af7d37a0c206a98db2"
+    }
+  }
+}
