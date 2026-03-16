@@ -9,7 +9,7 @@ FROM base AS builder
 WORKDIR /temp/build
 COPY --from=deps /temp/dev/node_modules ./node_modules
 COPY . .
-RUN bun run build
+RUN NITRO_PRESET=bun bun run build
 
 FROM base AS runner
 WORKDIR /app
