@@ -1,5 +1,5 @@
-import { defineEventHandler } from "h3";
+import { defineHandler } from "nitro";
 
-export default defineEventHandler(() => {
+export default defineHandler(() => {
   return "TMDB Proxy: <a href='https://github.com/keksiqc/tmdb-proxy'>Learn more</a>";
 });

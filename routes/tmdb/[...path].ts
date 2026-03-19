@@ -1,9 +1,10 @@
-import { defineEventHandler, getRequestURL, getQuery } from "nitro/h3";
+import { defineHandler } from "nitro";
+import { getRequestURL, getQuery } from "nitro/h3";
 import { $fetch } from "ofetch";
 
 const TMDB_API_URL = "https://api.themoviedb.org/3";
 
-export default defineEventHandler(async (event) => {
+export default defineHandler(async (event) => {
   const query = getQuery(event);
 
   console.log("Fetching TMDB API", {
