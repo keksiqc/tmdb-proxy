@@ -18,8 +18,8 @@
     "ipx": "3.1.1",
     "lint-staged": "16.4.0",
     "nitro": "3.0.260311-beta",
-    "oxfmt": "0.43.0",
-    "oxlint": "1.58.0",
+    "oxfmt": "0.44.0",
+    "oxlint": "1.59.0",
     "simple-git-hooks": "2.13.1"
   },
   "simple-git-hooks": {
