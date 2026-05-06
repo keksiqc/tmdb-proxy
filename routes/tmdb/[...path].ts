@@ -14,12 +14,12 @@ export default defineEventHandler(async (event) => {
     return await $fetch(event.context.params!.path, {
       baseURL: TMDB_API_URL,
       params: {
-        api_key: config.tmdb.apiKey,
         language: "en-US",
         ...query,
       },
       headers: {
         Accept: "application/json",
+         Authorization: `Bearer ${config.tmdb.apiKey}`,
       },
     });
   } catch (e: any) {
