@@ -1,5 +1,3 @@
-import { defineHandler } from "nitro";
-
-export default defineHandler(() => {
-  return "TMDB Proxy: <a href='https://github.com/keksiqc/tmdb-proxy'>Learn more</a>";
+export default eventHandler(() => {
+  return 'Nuxt Movies Proxy: <a href="https://github.com/nuxt/movies/tree/main/proxy">Learn more</a>';
 });
