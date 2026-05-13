@@ -1,6 +1,6 @@
 const TMDB_API_URL = "https://api.themoviedb.org/3";
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event) => {
   const query = getQuery(event);
   // eslint-disable-next-line no-console
   console.log("Fetching TMDB API", {
@@ -29,4 +29,10 @@ export default defineEventHandler(async (event) => {
       error: String(e)?.replace(config.tmdb.apiKey, "***"),
     };
   }
+}, {
+  maxAge: 3600,
+  getKey: (event) => {
+    const url = getRequestURL(event);
+    return url.pathname + url.search;
+  },
 });

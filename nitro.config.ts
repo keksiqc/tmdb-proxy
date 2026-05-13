@@ -4,7 +4,7 @@ import { defineNitroConfig } from "nitropack/config";
 export default defineNitroConfig({
   compatibilityDate: "2026-05-06",
   routeRules: {
-    "/**": { cors: true, swr: 3600 },
+    "/**": { cors: true },
   },
   runtimeConfig: {
     tmdb: {
