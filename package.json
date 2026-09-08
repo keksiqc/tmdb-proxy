@@ -7,7 +7,7 @@
     "build": "nitro build",
     "dev": "nitro dev",
     "preview": "bun run .output/server/index.mjs",
-    "prepare": "lefthook install",
+    "postinstall": "lefthook install",
     "lint": "oxfmt --check && oxlint",
     "lint:fix": "oxfmt && oxlint --fix"
   },
