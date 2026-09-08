@@ -3,10 +3,9 @@ FROM oven/bun:1.4-alpine AS base
 FROM base AS deps
 WORKDIR /temp/dev
 COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
+RUN bun install --ignore-scripts --frozen-lockfile
 
 FROM base AS builder
-ENV LEFTHOOK=0
 WORKDIR /temp/build
 COPY --from=deps /temp/dev/node_modules ./node_modules
 COPY . .
