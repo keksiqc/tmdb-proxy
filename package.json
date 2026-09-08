@@ -6,28 +6,18 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "prepare": "simple-git-hooks",
     "preview": "bun run .output/server/index.mjs",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "prepare": "lefthook install",
+    "lint": "oxfmt --check && oxlint",
+    "lint:fix": "oxfmt && oxlint --fix"
   },
   "devDependencies": {
     "@types/bun": "1.4.2",
     "ipx": "4.0.0-beta.1",
-    "lint-staged": "17.5.0",
+    "lefthook": "^2.1.12",
     "nitro": "3.0.260903-beta",
     "oxfmt": "0.67.0",
-    "oxlint": "1.82.0",
-    "simple-git-hooks": "2.14.0"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "bun run lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": "bun run lint:fix",
-    "*": "bun run fmt --no-error-on-unmatched-pattern"
+    "oxlint": "1.82.0"
   },
   "packageManager": "bun@1.4.2"
 }
