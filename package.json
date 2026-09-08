@@ -6,7 +6,7 @@
   "scripts": {
     "build": "nitro build",
     "dev": "nitro dev",
-    "prepare": "nitro prepare && simple-git-hooks",
+    "prepare": "simple-git-hooks",
     "preview": "bun run .output/server/index.mjs",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix",
