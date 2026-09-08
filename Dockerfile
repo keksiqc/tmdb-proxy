@@ -6,6 +6,7 @@ COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 
 FROM base AS builder
+ENV LEFTHOOK=0
 WORKDIR /temp/build
 COPY --from=deps /temp/dev/node_modules ./node_modules
 COPY . .
