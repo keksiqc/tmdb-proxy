@@ -1,7 +1,7 @@
-import { defineNitroConfig } from "nitro/config";
+import { defineConfig } from "nitro";
 
-export default defineNitroConfig({
-  compatibilityDate: "2026-03-05",
+export default defineConfig({
+  compatibilityDate: "2026-10-30",
   serverDir: "./",
   routeRules: {
     "/**": {
