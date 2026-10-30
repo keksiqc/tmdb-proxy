@@ -12,13 +12,13 @@
     "lint:fix": "oxfmt && oxlint --fix"
   },
   "devDependencies": {
-    "@types/bun": "1.4.3",
+    "@types/bun": "1.4.4",
     "ipx": "4.0.0",
     "lefthook": "2.2.2",
-    "nitro": "3.0.260903-beta",
+    "nitro": "3.0.261029-rc",
     "ofetch": "1.5.1",
-    "oxfmt": "0.73.0",
-    "oxlint": "1.88.0"
+    "oxfmt": "0.75.0",
+    "oxlint": "1.90.0"
   },
-  "packageManager": "bun@1.4.3"
+  "packageManager": "bun@1.4.4"
 }
